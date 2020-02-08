@@ -1,2 +1,2 @@
 def to_time(hour, minute, second):
-    return "00:00:00"
+    return "{:02}:{:02}:{:02}".format(hour, minute, second)
