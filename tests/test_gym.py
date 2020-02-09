@@ -18,3 +18,14 @@ def test_should_raise_InvalidArgumentException_if_minutes_no_correct():
 def test_should_raise_InvalidArgumentException_if_seconds_no_correct():
     with pytest.raises(InvalidArgumentException):
         to_time(22, 4, 60)
+
+@pytest.mark.parametrize("hours, minutes, seconds, expected",
+        [
+                (7, 23, 44, "07:23:44"),
+                (0, 0, 0, "00:00:00"),
+                (17, 5, 2, "17:05:02"),
+                (23, 59, 59, "23:59:59")
+        ]
+)
+def test_bulk_with_parametrize(hours, minutes, seconds, expected):
+        assert expected == to_time(hours, minutes, seconds)
